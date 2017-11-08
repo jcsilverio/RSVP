@@ -18,7 +18,12 @@ const Guest  = props =>
            checked={props.isConfirmed}
            onChange={props.handleConfirmation} /> Confirmed
       </label>
-      <button onClick={props.handleToggleEditing}>edit</button>
+      <button onClick={props.handleToggleEditing}>
+      {
+        props.isEditing
+         ? "save"
+        : "edit"}
+      </button>
       <button>remove</button>
     </li>
 
