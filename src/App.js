@@ -10,18 +10,18 @@ class App extends Component {
     pendingGuest: "",
     guests: [
     {
-      name: 'Treasure',
+      name: 'Leeroy Jenkins',
       isConfirmed: false,
       isEditing: false,
     },
     {
-      name: 'Nick',
+      name: 'Chuck Norris',
       isConfirmed: true,
       isEditing: false,
 
     },
     {
-      name: 'Joelle',
+      name: 'Olenna Tyrell',
       isConfirmed: false,
       isEditing: true,
 
