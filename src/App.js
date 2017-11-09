@@ -91,12 +91,20 @@ class App extends Component {
   }
 
   getTotalInvited = () => this.state.guests.length;
-  // getAttendingGuests = () =>
-  // getUnconfirmedGuests = () =>
+
+  getAttendingGuests = () =>
+      this.state.guests.reduce(
+        (total, guest) => guest.isConfirmed ? total + 1 : total,
+        0
+      );
+
 
 
   render() {
     const totalInvited = this.getTotalInvited();
+    const numberAttending = this.getAttendingGuests();
+    const numberUnconfirmed = totalInvited - numberAttending;
+
     return (
       <div className="App">
         <header>
@@ -123,7 +131,9 @@ class App extends Component {
               </label>
           </div>
           <Counter
-              totalInvited={totalInvited}/>
+              totalInvited={totalInvited}
+              numberAttending={numberAttending}
+              numberUnconfirmed={numberUnconfirmed} />
 
           <GuestList
              guests={this.state.guests}
