@@ -136,6 +136,7 @@ class App extends Component {
           <p>Plan Your Event</p>
           <form onSubmit={this.newGuestSubmitHandler}>
           <div>
+          <span className="instruction"> Invite Someone... </span>
             <input
                type="text"
                onChange={this.handleNameInput}

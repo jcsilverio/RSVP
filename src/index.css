@@ -101,7 +101,8 @@ header {
   background-size: cover;
 }
 
-header input {
+header input,
+.instruction {
   padding: 12px;
   font-size: 1.15em;
   width: 100%;

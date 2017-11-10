@@ -12,7 +12,7 @@ const GuestName  = props => {
        onChange={props.handleNameEdits} />
 
       <input type="text"
-        value={props.children[1]}
+          value={props.children[1]}
        onChange={props.handleEmailEdits}  />
         </div>
 
@@ -21,11 +21,11 @@ const GuestName  = props => {
      return (
       <div>
          <span>
-             {props.children[0]}
+             {props.children[0] || "[Add guest name]"}
          </span>
 
          <span className="email">
-             {props.children[1]}
+             {props.children[1] || "[Add guest email]"}
          </span>
      </div>
      );
