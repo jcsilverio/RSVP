@@ -10,7 +10,7 @@ const Guest  = props =>
       <GuestName
            isEditing={props.isEditing}
            handleNameEdits={e => props.setName(e.target.value)}
-          // handleEmailEdits={e =>props.setEmail(e.target.value)}
+           handleEmailEdits={e =>props.setEmail(e.target.value)}
            >
           {props.name}
           {props.email}
@@ -36,6 +36,7 @@ const Guest  = props =>
 
  Guest.propTypes = {
     name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
     isConfirmed: PropTypes.bool.isRequired,
     isEditing:PropTypes.bool.isRequired,
     handleConfirmation: PropTypes.func.isRequired,

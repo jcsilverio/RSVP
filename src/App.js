@@ -74,6 +74,20 @@ class App extends Component {
        })
      });
 
+   setEmailAt = (email, indexToChange) =>
+    this.setState({
+       guests: this.state.guests.map((guest,index) => {
+        if (index === indexToChange) {
+          return {
+            ...guest,
+            email,
+
+          };
+        }
+        return guest;
+       })
+     });
+
   toggleFilter = () =>
      this.setState({ isFiltered: !this.state.isFiltered });
 
@@ -158,6 +172,7 @@ class App extends Component {
              toggleConfirmationAt={this.toggleConfirmationAt}
              toggleEditingAt={this.toggleEditingAt}
              setNameAt={this.setNameAt}
+             setEmailAt={this.setEmailAt}
              isFiltered={this.state.isFiltered}
              removeGuestAt={this.removeGuestAt}
              pendingGuest={this.state.pendingGuest}

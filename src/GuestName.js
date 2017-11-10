@@ -8,22 +8,26 @@ const GuestName  = props => {
     return (
       <div>
       <input type="text"
-       value={props.name}
+       value={props.children[0]}
        onChange={props.handleNameEdits} />
+
       <input type="text"
-        placeholder="Enter email address" />
+        value={props.children[1]}
+       onChange={props.handleEmailEdits}  />
         </div>
 
       );
   }
-  return (
-    <div>
-    <span>
-      {props.name}
-    </span>
-    <span className="email"> props.something email goes here
-    </span>
-    </div>
+     return (
+      <div>
+         <span>
+             {props.children[0]}
+         </span>
+
+         <span className="email">
+             {props.children[1]}
+         </span>
+     </div>
      );
 
 };
@@ -34,7 +38,8 @@ const GuestName  = props => {
  GuestName.propTypes = {
 
     isEditing:PropTypes.bool.isRequired,
-    handleNameEdits: PropTypes.func.isRequired
+    handleNameEdits: PropTypes.func.isRequired,
+    handleEmailEdits: PropTypes.func.isRequired
 
  }
 
