@@ -140,15 +140,15 @@ class App extends Component {
                type="text"
                onChange={this.handleNameInput}
                value={this.state.pendingGuest}
-               placeholder="Invite Someone..."
+               placeholder="Name"
                 />
             <input
                type="text"
                onChange={this.handleEmailInput}
                value={this.state.pendingEmail}
-               placeholder="Email Address..."
+               placeholder="Email Address"
                 />
-            <button type="submit" name="submit" value="submit">Submit</button>
+            <button type="submit" name="submit" value="submit">Add to Guest List</button>
             </div>
           </form>
         </header>
