@@ -12,6 +12,7 @@ const Guest  = props =>
            handleNameEdits={e => props.setName(e.target.value)}>
           {props.name}
       </GuestName>
+
       <label>
         <input
            type="checkbox"
