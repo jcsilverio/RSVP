@@ -6,9 +6,13 @@ import PropTypes from 'prop-types';
 const GuestName  = props => {
   if (props.isEditing) {
     return (
+      <div>
       <input type="text"
        value={props.children}
        onChange={props.handleNameEdits} />
+      <input type="text"
+        placeholder="Enter email" />
+        </div>
 
       );
   }
@@ -17,6 +21,7 @@ const GuestName  = props => {
       {props.children}
     </span>
      );
+
 };
 
 
