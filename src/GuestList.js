@@ -6,13 +6,16 @@ import PendingGuest from './PendingGuest';
 
 const GuestList  = props =>
   <ul>
-  <PendingGuest name={props.pendingGuest}/>
+  <PendingGuest
+     name={props.pendingGuest}
+     email={props.pendingEmail} />
     {props.guests
       .filter(guest => !props.isFiltered || guest.isConfirmed)
       .map((guest, index) =>
       <Guest
           key={index}
           name={guest.name}
+          email={guest.email}
           isConfirmed={guest.isConfirmed}
           isEditing={guest.isEditing}
           handleConfirmation={() => props.toggleConfirmationAt(index)}
@@ -29,7 +32,8 @@ const GuestList  = props =>
     setNameAt: PropTypes.func.isRequired,
     isFiltered: PropTypes.bool.isRequired,
     removeGuestAt: PropTypes.func.isRequired,
-    pendingGuest: PropTypes.string.isRequired
+    pendingGuest: PropTypes.string.isRequired,
+    pendingEmail: PropTypes.string.isRequired
  }
 
 export default GuestList;

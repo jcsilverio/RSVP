@@ -8,18 +8,22 @@ const GuestName  = props => {
     return (
       <div>
       <input type="text"
-       value={props.children}
+       value={props.name}
        onChange={props.handleNameEdits} />
       <input type="text"
-        placeholder="Enter email" />
+        placeholder="Enter email address" />
         </div>
 
       );
   }
   return (
+    <div>
     <span>
-      {props.children}
+      {props.name}
     </span>
+    <span className="email"> props.something email goes here
+    </span>
+    </div>
      );
 
 };

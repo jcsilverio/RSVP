@@ -8,20 +8,24 @@ class App extends Component {
   state = {
     isFiltered: false,
     pendingGuest: "",
+    pendingEmail: "",
     guests: [
     {
       name: 'Leeroy Jenkins',
+      email: 'leeroy@leeroy.com',
       isConfirmed: false,
       isEditing: false,
     },
     {
       name: 'Chuck Norris',
+      email: 'chuck@chuck.com',
       isConfirmed: true,
       isEditing: false,
 
     },
     {
       name: 'Olenna Tyrell',
+      email: 'olenna@boss.com',
       isConfirmed: false,
       isEditing: true,
 
@@ -62,7 +66,8 @@ class App extends Component {
         if (index === indexToChange) {
           return {
             ...guest,
-            name
+            name,
+
           };
         }
         return guest;
@@ -75,18 +80,23 @@ class App extends Component {
   handleNameInput = e =>
   this.setState({ pendingGuest: e.target.value });
 
+  handleEmailInput = e =>
+  this.setState({ pendingEmail: e.target.value });
+
   newGuestSubmitHandler = e => {
     e.preventDefault();
     this.setState({
        guests: [
        {
         name: this.state.pendingGuest,
+        email: this.state.pendingEmail,
         isConfirmed: false,
         isEditing: false
         },
         ...this.state.guests
        ],
-       pendingGuest: ''
+       pendingGuest: '',
+       pendingEmail: ''
      })
   }
 
@@ -111,13 +121,21 @@ class App extends Component {
           <h1>RSVP</h1>
           <p>Plan Your Event</p>
           <form onSubmit={this.newGuestSubmitHandler}>
+          <div>
             <input
                type="text"
                onChange={this.handleNameInput}
                value={this.state.pendingGuest}
                placeholder="Invite Someone..."
                 />
+            <input
+               type="text"
+               onChange={this.handleEmailInput}
+               value={this.state.pendingEmail}
+               placeholder="Email Address..."
+                />
             <button type="submit" name="submit" value="submit">Submit</button>
+            </div>
           </form>
         </header>
         <div className="main">
@@ -143,6 +161,7 @@ class App extends Component {
              isFiltered={this.state.isFiltered}
              removeGuestAt={this.removeGuestAt}
              pendingGuest={this.state.pendingGuest}
+             pendingEmail={this.state.pendingEmail}
               />
         </div>
       </div>

@@ -173,9 +173,15 @@ td:last-child {
 }
 /* pending */
 
+
+.email {
+  font-size: small;
+}
+
 .pending {
   border-color: rgba(210, 210, 210, .5);
 }
+
 
 .pending span {
   color: rgb(210, 210, 210);
@@ -308,3 +314,5 @@ td:last-child {
     flex-basis: 20%;
   }
 }
+
+

@@ -9,6 +9,9 @@ const PendingGuest  = props =>{
       <span>
           {props.name}
       </span>
+      <span className="email">
+        {props.email}
+      </span>
 
     </li>
      );
@@ -19,7 +22,8 @@ const PendingGuest  = props =>{
 
 
  PendingGuest.propTypes = {
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired
  }
 
 export default PendingGuest;
