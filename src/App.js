@@ -9,26 +9,7 @@ class App extends Component {
     isFiltered: false,
     pendingGuest: "",
     pendingEmail: "",
-    guests: [    {
-      name: 'Leeroy Jenkins',
-       email: 'leeroy@leeroy.com',
-       isConfirmed: false,
-       isEditing: false,
-     },
-     {
-       name: 'Chuck Norris',
-       email: 'chuck@chuck.com',
-       isConfirmed: true,
-       isEditing: false,
-
-     },
-    {
-       name: 'Olenna Tyrell',
-       email: 'olenna@boss.com',
-       isConfirmed: false,
-       isEditing: true,
-
-     },]
+    guests: []
   };
 
   lastGuestId = 0;
