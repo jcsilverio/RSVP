@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import GuestList from './GuestList';
 import Counter from './Counter';
 
@@ -149,7 +149,7 @@ class App extends Component {
                value={this.state.pendingEmail}
                placeholder="Email Address"
                 />
-            <button type="submit" name="submit" value="submit">Add to Guest List</button>
+            <button type="submit" className="submitButton" name="submit" value="submit">Add to Guest List</button>
             </div>
           </form>
         </header>
@@ -179,6 +179,10 @@ class App extends Component {
              pendingGuest={this.state.pendingGuest}
              pendingEmail={this.state.pendingEmail}
               />
+
+        </div>
+        <div className="footer">
+           <p>made by <a href="https://github.com/jcsilverio" target="_blank">me</a> © 2017.</p>
         </div>
       </div>
     );
