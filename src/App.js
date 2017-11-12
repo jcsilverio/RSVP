@@ -3,14 +3,20 @@ import React, { Component } from 'react';
 import GuestList from './GuestList';
 import Counter from './Counter';
 
+
+
 class App extends Component {
 
-  state = {
+
+  state = JSON.parse(localStorage.getItem('storedGuests')) || {
     isFiltered: false,
     pendingGuest: "",
     pendingEmail: "",
-    guests: []
+    guests: [],
   };
+
+ stateLog = () => console.log('state: ', this.state);
+
 
   lastGuestId = 0;
 
@@ -36,10 +42,12 @@ class App extends Component {
     toggleConfirmation = id =>
       this.toggleGuestProperty("isConfirmed", id);
 
-    removeGuest = id =>
+    removeGuest = id => {
     this.setState({
       guests: this.state.guests.filter(guest => id !== guest.id)
     });
+
+  };
 
     toggleEditing = id =>
       this.toggleGuestProperty("isEditing", id);
@@ -74,7 +82,7 @@ class App extends Component {
   toggleFilter = () =>
      this.setState({ isFiltered: !this.state.isFiltered });
 
-  handleNameInput = e =>
+   handleNameInput = e =>
   this.setState({ pendingGuest: e.target.value });
 
   handleEmailInput = e =>
@@ -83,6 +91,7 @@ class App extends Component {
   newGuestSubmitHandler = e => {
     e.preventDefault();
     const id = this.newGuestId();
+
     this.setState({
        guests: [
        {
@@ -95,9 +104,12 @@ class App extends Component {
         ...this.state.guests
        ],
        pendingGuest: '',
-       pendingEmail: ''
-     })
-  }
+       pendingEmail: '',
+
+     });
+
+
+  };
 
   getTotalInvited = () => this.state.guests.length;
 
@@ -107,14 +119,18 @@ class App extends Component {
         0
       );
 
-
+  setSavedGuests = function () {
+   localStorage.setItem('storedGuests', JSON.stringify(this.state));
+   console.log('setSavedGuests Fires')
+ }
 
   render() {
     const totalInvited = this.getTotalInvited();
     const numberAttending = this.getAttendingGuests();
     const numberUnconfirmed = totalInvited - numberAttending;
-
+   this.setSavedGuests();
     return (
+
       <div className="App">
         <header>
           <h1>RSVP</h1>
@@ -165,13 +181,19 @@ class App extends Component {
              pendingEmail={this.state.pendingEmail}
               />
 
-        </div>
+
+
         <div className="footer">
-           <p>made by <a href="https://github.com/jcsilverio" target="_blank">me</a> © 2017.</p>
+           <p>made by <a href="https://github.com/jcsilverio" target="_blank" rel="noopener noreferrer">me</a> © 2017.</p>
         </div>
+        </div>
+
       </div>
+
     );
+
   }
+
 }
 
 export default App;

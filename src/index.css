@@ -332,23 +332,7 @@ td:last-child {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 35px;
-
-
-
-  /* Vertically center the text there */
-  background-color: #f2f3f7;
-
-
-  max-width: 900px;
-  margin: 2.5em auto;
-  border-radius: .35em;
-  overflow: hidden;
-  -webkit-box-shadow: 0 0 26px rgba(0, 0, 0, .13);
-  box-shadow: 0 0 26px rgba(0, 0, 0, .13);
-
-
+  height: 15px;
 }
 
 .footer p {
@@ -357,6 +341,6 @@ td:last-child {
   font-family: 'Lato';
   text-align: center;
   line-height: 0px;
-  font-size: 1em;
+  font-size: .6em;
 
 }
